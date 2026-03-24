@@ -10,7 +10,7 @@ class Veiculo(models.Model):
     preco = models.DecimalField(max_digits=7, decimal_places=2, null=True, default=0)
     modelo = models.ForeignKey(Modelo, on_delete=models.PROTECT, related_name='veiculos', null=True, blank=True)
     cor = models.ForeignKey(Cor, on_delete=models.PROTECT, related_name='veiculos', null=True, blank=True)
-    acessorios = models.ManyToManyField(Acessorio, related_name='veiculos', blank=True)
+    acessorios = models.ManyToManyField(Acessorio, related_name='veiculos')
 
     def __str__(self):
         return f'({self.id}) {self.modelo} {self.cor} {self.ano}'
